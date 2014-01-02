@@ -100,14 +100,11 @@
     CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
 
     [UIView animateWithDuration:0.2f animations:^{
-        
-        CGRect frame = textInputView.frame;
-        frame.origin.y -= kbSize.height;
-        textInputView.frame = frame;
-        
-        frame = bubbleTable.frame;
+      
+        CGRect frame = self.view.frame;
         frame.size.height -= kbSize.height;
-        bubbleTable.frame = frame;
+        self.view.frame = frame;
+        [self.view setNeedsLayout];
     }];
 }
 
@@ -117,14 +114,11 @@
     CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
     
     [UIView animateWithDuration:0.2f animations:^{
-        
-        CGRect frame = textInputView.frame;
-        frame.origin.y += kbSize.height;
-        textInputView.frame = frame;
-        
-        frame = bubbleTable.frame;
+      
+        CGRect frame = self.view.frame;
         frame.size.height += kbSize.height;
-        bubbleTable.frame = frame;
+        self.view.frame = frame;
+        [self.view setNeedsLayout];
     }];
 }
 
